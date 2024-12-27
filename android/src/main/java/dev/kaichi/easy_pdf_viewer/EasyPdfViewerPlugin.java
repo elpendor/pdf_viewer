@@ -23,6 +23,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
+import android.os.Looper;
 
 /** EasyPdfViewerPlugin */
 public class EasyPdfViewerPlugin implements FlutterPlugin, MethodCallHandler {
@@ -55,7 +56,7 @@ public class EasyPdfViewerPlugin implements FlutterPlugin, MethodCallHandler {
       }
     }
 
-    final Handler mainThreadHandler = new Handler();
+    final Handler mainThreadHandler = new Handler(Looper.getMainLooper());
 
     backgroundHandler.post(//
         new Runnable() {
